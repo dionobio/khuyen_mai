@@ -76,7 +76,7 @@ require_once 'views/edit_kmai.php';  // Truyền dữ liệu vào view nếu c�
 
                                     <div class="card-body">
                                         <div class="live-preview">
-                                            <form action="index.php?action=update-khuyen-mai    " method="post">
+                                            <form action="index.php?act=update-khuyen-mai    " method="post">
                                                 <input type="hidden" name="id" value="<?php echo $promotion['id']; ?>">
 
                                                 <div class="mb-3">
