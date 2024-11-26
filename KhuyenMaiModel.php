@@ -76,7 +76,14 @@ class KhuyenMaiModel
             return false;
         }
     }
-
+    public function searchByKeyword($keyword)
+    {
+        $conn = $this->pdo;
+        $stmt = $conn->prepare("SELECT * FROM khuyen_mai WHERE ten_khuyen_mai LIKE :keyword OR mo_ta LIKE :keyword");
+        $stmt->execute([':keyword' => '%' . $keyword . '%']);
+        return $stmt->fetchAll();
+    }
+    
     // Xóa khuyến mãi theo ID
     public function delete($id)
 {
