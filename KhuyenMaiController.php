@@ -22,7 +22,16 @@ class KhuyenMaiController
     {
         require "views/add_kmai.php";
     }
-
+    public function searchKmai()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $keyword = $_POST['keyword'] ?? '';
+            $promotions = $this->model->searchByKeyword($keyword);
+            require "views/list_kmai.php";
+        } else {
+            echo "Phương thức không hợp lệ!";
+        }
+    }
     // Xử lý thêm khuyến mãi mới
     public function addKmai()
     {
@@ -33,9 +42,8 @@ class KhuyenMaiController
             $ngay_bat_dau = $_POST['ngay_bat_dau'];
             $ngay_ket_thuc = $_POST['ngay_ket_thuc'];
             $trang_thai = $_POST['trang_thai'];
-
             $this->model->add($ten_khuyen_mai, $mo_ta, $discount_value, $ngay_bat_dau, $ngay_ket_thuc, $trang_thai);
-            header("Location: index.php?action=list-khuyen-mai");
+            header("Location: index.php?act=list-khuyen-mai");
         } else {
             echo "Phương thức không hợp lệ!";
         }
@@ -76,7 +84,7 @@ class KhuyenMaiController
             $this->model->update($id, $ten_khuyen_mai, $mo_ta, $discount_value, $ngay_bat_dau, $ngay_ket_thuc, $trang_thai);
 
             // Chuyển hướng về trang danh sách khuyến mãi sau khi cập nhật
-            header("Location: index.php?action=list-khuyen-mai");
+            header("Location: index.php?act=list-khuyen-mai");
         } else {
             echo "Phương thức không hợp lệ!";
         }
@@ -88,13 +96,13 @@ class KhuyenMaiController
     {
         if ($id) {
             $this->model->delete($id);
-            header("Location: index.php?action=list-khuyen-mai");
+            header("Location: index.php?act=list-khuyen-mai");
         } else {
             echo "ID không hợp lệ!";
         }
     }
 
-    // Trang mặc định hiển thị danh sách người dùng nếu không khớp action nào
+    // Trang mặc định hiển thị danh sách người dùng nếu không khớp act nào
     public function showUserList()
     {
         echo "Trang danh sách người dùng";
