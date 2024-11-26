@@ -71,7 +71,7 @@
 
                                     <div class="card-body">
                                         <div class="live-preview">
-                                            <form action="index.php?action=add-khuyen-mai" method="post" enctype="multipart/form-data">
+                                            <form action="index.php?act=add-khuyen-mai" method="post" enctype="multipart/form-data">
                                                 <h2 class="mb-4">Thêm Khuyến Mãi Mới</h2>
                                                 
                                                 <div class="mb-3">
