@@ -49,8 +49,12 @@
                             <div class="card">
                                 <div class="card-header align-items-center d-flex">
                                     <h4 class="card-title mb-0 flex-grow-1">Danh sách khuyến mãi</h4>
-                                    <a href="?action=add" class="btn btn-soft-success"><i class="ri-add-circle-line align-middle me-1"></i> Thêm khuyến mãi mới</a>
+                                    <a href="?act=add" class="btn btn-soft-success"><i class="ri-add-circle-line align-middle me-1"></i> Thêm khuyến mãi mới</a>
                                 </div>
+                                <form method="GET" action="?act=list-khuyen-mai">
+                              <input type="text" name="search" placeholder="Tìm kiếm khuyến mãi">
+                              <button type="submit">Tìm</button>
+                           </form>
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <table class="table table-striped table-nowrap align-middle mb-0">
@@ -84,8 +88,8 @@
                                                         "'>" . ucfirst($promo["trang_thai"]) . "</span></td>";
                                     
                                                     echo "<td>";
-                                                        echo "<a href='?action=edit-khuyen-mai&id=" . $promo["id"] . "' class='btn btn-warning btn-sm me-1'>Sửa</a>";
-                                                        echo "<a href='?action=delete-khuyen-mai&id=" . $promo["id"] . "' class='btn btn-danger btn-sm' onclick='return confirm(\"Bạn có chắc chắn muốn xóa khuyến mãi này không?\")'>Xóa</a>";
+                                                        echo "<a href='?act=edit-khuyen-mai&id=" . $promo["id"] . "' class='btn btn-warning btn-sm me-1'>Sửa</a>";
+                                                        echo "<a href='?act=delete-khuyen-mai&id=" . $promo["id"] . "' class='btn btn-danger btn-sm' onclick='return confirm(\"Bạn có chắc chắn muốn xóa khuyến mãi này không?\")'>Xóa</a>";
                                                     echo "</td>";
                                                     echo "</tr>";
                                                 }
